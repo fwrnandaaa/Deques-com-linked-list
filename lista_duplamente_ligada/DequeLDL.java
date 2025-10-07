@@ -1,33 +1,34 @@
-public class DequeLL{
+public class DequeLDL{
     private Node head;
-    private int size;
     private Node tail;
-    
-        private static class Node{
-            Object value;
-            Node next;
+    private int size;
 
-            Node(Object value){
-                this.value = value;
-                this.next = null;
-            }
+    private static class Node{
+        Object value;
+        Node next;
+        Node prev;
+        Node(Object value){
+            this.value = value;
+            this.next = null;
+            this.prev = null;
         }
-        public DequeLL() {
-            head = null;
-            tail = null;
-            size = 0;
-        }   
-        
-        public int size(){
-            return size;
+    }
+    public DequeLDL(){
+        head = null;
+        tail = null;
+        size = 0;
+    }
+
+    public int size(){
+        return size;
+    }
+    public boolean isEmpty(){
+        if(head == null){
+            return true;
         }
-        public boolean isEmpty(){
-            if (head == null){
-                return true;
-            }
-            return false;
-        }
-        public void inserirInicio(Object value){
+        return false;
+    }
+    public void inserirInicio(Object value){
             Node current = new Node(value);
             if(isEmpty()){
                 head = current;
@@ -35,6 +36,7 @@ public class DequeLL{
             }
             else{
                 current.next = head;
+                head.prev = current;
                 head = current;
             }
             size++;
@@ -49,6 +51,7 @@ public class DequeLL{
             }
             else{
                 tail.next = current;
+                current.prev = tail;
                 tail = current;
                 size++;
             }
@@ -63,7 +66,13 @@ public class DequeLL{
         }
         public void removerInicio(){
             if(isEmpty() == false){
-                head = head.next;
+               head = head.next;
+                if (head != null) {
+                    head.prev = null;
+                } 
+                else {
+                    tail = null; 
+                }
                 size--;
             }
         } 
@@ -78,12 +87,8 @@ public class DequeLL{
                 size = 0;
                 return;
             }
-            Node current = head;
-            while(current.next.next != null){
-                current = current.next;
-            }
-            current.next = null;
-            tail = current;
+            tail = tail.prev;
+            tail.next=null;
             size--;
             return;
     
@@ -98,5 +103,3 @@ public class DequeLL{
 
 
     }
-
-
