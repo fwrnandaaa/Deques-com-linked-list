@@ -21,7 +21,7 @@ public class testesDequeLL{
         System.out.println("Tamanho: " + deque.size());
 
         //Testando métodos auxiliares
-        System.out.println(deque.primeiro());
-        System.out.println(deque.ultimo());
+        System.out.println("Primeiro elemento: "+deque.primeiro());
+        System.out.println("Ultimo elemento: "+deque.ultimo());
     }
 }
