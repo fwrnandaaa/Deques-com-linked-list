@@ -8,7 +8,11 @@ public class testesDequeLDL {
         System.out.println("Tamanho: " + deque.size());
         deque.verDeque();
 
-        deque.removerInicio();
+        try {
+            deque.removerInicio();
+        } catch (DequeLDLExcecao e) {
+            System.out.println(e.getMessage());
+        }
         System.out.println("Tamanho: " + deque.size());
         deque.verDeque();
 
@@ -19,15 +23,25 @@ public class testesDequeLDL {
         System.out.println("Tamanho após inserções no final: " + deque.size());
         deque.verDeque();
 
-        deque.removerFinal();
-        System.out.println("\nApós remover do final:");
+       try {
+            deque.removerFinal();
+        } catch (DequeLDLExcecao e) {
+            System.out.println(e.getMessage());
+        }
         System.out.println("Tamanho: " + deque.size());
         deque.verDeque();
 
         // Testando métodos auxiliares
-        System.out.println("Primeiro elemento: " + deque.primeiro());
+        try {
+            System.out.println("Primeiro elemento: " + deque.primeiro());
+        } catch (DequeLDLExcecao e) {
+            System.out.println(e.getMessage());
+        }
+        try {
         System.out.println("Último elemento: " + deque.ultimo());
-
+        } catch (DequeLDLExcecao e) {
+            System.out.println(e.getMessage());
+        }
         
     }
 }

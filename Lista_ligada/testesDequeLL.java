@@ -8,7 +8,12 @@ public class testesDequeLL{
        }
        System.out.println("Tamanho: " + deque.size());
        deque.verDeque();
-       deque.removerInicio();
+      try {
+        deque.removerInicio();
+        } 
+        catch (DequeExcecao e) {
+            System.out.println("Erro: " + e.getMessage());
+            }
        System.out.println("Tamanho: " + deque.size());
        deque.verDeque();
        
@@ -17,11 +22,23 @@ public class testesDequeLL{
             deque.inserirFinal(i);
         }
         System.out.println("Tamanho: " + deque.size());
-        deque.removerFinal();
+        try {
+            deque.removerFinal();
+            } catch (DequeExcecao e) {
+                System.out.println("Erro: " + e.getMessage());
+                }
         System.out.println("Tamanho: " + deque.size());
-
+    
         //Testando métodos auxiliares
-        System.out.println("Primeiro elemento: "+deque.primeiro());
-        System.out.println("Ultimo elemento: "+deque.ultimo());
+        try {
+            System.out.println("Primeiro elemento: " + deque.primeiro());
+            } catch (DequeExcecao e) {
+                System.out.println("Erro: " + e.getMessage());
+            }
+        try {
+            System.out.println("Último elemento: " + deque.ultimo());
+            } catch (DequeExcecao e) {
+                System.out.println("Erro: " + e.getMessage());  
+            }
     }
 }

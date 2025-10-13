@@ -65,7 +65,9 @@ public class DequeLDL{
             }
         }
         public void removerInicio(){
-            if(isEmpty() == false){
+            if(isEmpty()){
+                  throw new DequeLDLExcecao("Deque está vazio");
+            }
                head = head.next;
                 if (head != null) {
                     head.prev = null;
@@ -75,11 +77,11 @@ public class DequeLDL{
                 }
                 size--;
             }
-        } 
+    
         
         public void removerFinal(){
             if(isEmpty()){
-                return;
+                throw new DequeLDLExcecao("Deque está vazio");
                 }
             if(size == 1){
                 head = null;
@@ -95,11 +97,17 @@ public class DequeLDL{
         
         }
         public Object primeiro(){
+             if(isEmpty()){
+                throw new DequeLDLExcecao("Deque está vazio");
+                }
             return head.value;
         }
         public Object ultimo(){
+             if(isEmpty()){
+                throw new DequeLDLExcecao("Deque está vazio");
+                }
             return tail.value;
         }
-
+  
 
     }

@@ -62,7 +62,11 @@ public class DequeLL{
             }
         }
         public void removerInicio(){
-            if(isEmpty() == false){
+            if(isEmpty()){
+                throw new DequeExcecao("Deque está vazio");
+              
+            }
+            else{
                 head = head.next;
                 size--;
             }
@@ -70,7 +74,7 @@ public class DequeLL{
         
         public void removerFinal(){
             if(isEmpty()){
-                return;
+               throw new DequeExcecao("Deque está vazio");
                 }
             if(size == 1){
                 head = null;
@@ -90,13 +94,16 @@ public class DequeLL{
         
         }
         public Object primeiro(){
+            if (isEmpty()) {
+                throw new DequeExcecao("Deque está vazio");
+            }
             return head.value;
-        }
+            }
+        
         public Object ultimo(){
+             if (isEmpty()) {
+                throw new DequeExcecao("Deque está vazio");
+            }
             return tail.value;
         }
-
-
-    }
-
-
+}
